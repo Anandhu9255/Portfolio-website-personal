@@ -78,7 +78,7 @@ function App() {
           transition={{ duration: 0.8 }}
         >
           <ParticleBackground />
-          <Navbar />
+          <Navbar darkMode={isDark} toggleDarkMode={() => setIsDark(!isDark)} />
           <main>
             <Hero />
             <Projects />
@@ -87,17 +87,6 @@ function App() {
             <Contact />
           </main>
           <Footer />
-
-          {/* Theme Toggle */}
-          <motion.button
-            className="theme-toggle"
-            onClick={() => setIsDark(!isDark)}
-            whileHover={{ scale: 1.1, rotate: 15 }}
-            whileTap={{ scale: 0.9 }}
-            title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
-          >
-            {isDark ? "☀️" : "🌙"}
-          </motion.button>
         </motion.div>
       )}
     </div>

@@ -26,6 +26,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}
     >
+      {/* LOGO */}
       <div className="navbar__logo" onClick={() => scrollTo("hero")}>
         <span className="navbar__logo-bracket">&lt;</span>
         <span className="navbar__logo-name">
@@ -34,6 +35,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         <span className="navbar__logo-bracket">/&gt;</span>
       </div>
 
+      {/* NAV LINKS */}
       <ul className={`navbar__links ${menuOpen ? "navbar__links--open" : ""}`}>
         {navLinks.map((link, i) => (
           <motion.li
@@ -47,32 +49,21 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             </button>
           </motion.li>
         ))}
-
-        {/* Mobile theme toggle inside menu */}
-        <li className="navbar__theme-mobile">
-          <button className="navbar__theme-btn" onClick={toggleDarkMode}>
-            {darkMode ? "☀️ LIGHT MODE" : "🌙 DARK MODE"}
-          </button>
-        </li>
       </ul>
 
+      {/* RIGHT SIDE — single toggle + hamburger */}
       <div className="navbar__right">
-        {/* Desktop theme toggle */}
         <motion.button
-          className="navbar__theme-btn navbar__theme-btn--desktop"
+          className="navbar__theme-btn"
           onClick={toggleDarkMode}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.92 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
+          title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
         >
-          <span className="navbar__theme-icon">
-            {darkMode ? "☀️" : "🌙"}
-          </span>
-          <span className="navbar__theme-label">
-            {darkMode ? "LIGHT" : "DARK"}
-          </span>
+          {darkMode ? "☀️" : "🌙"}
         </motion.button>
 
         <button

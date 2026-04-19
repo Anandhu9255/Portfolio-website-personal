@@ -159,36 +159,6 @@ button {
   transition: background-color 0.4s ease;
 }
 
-/* ---------- THEME TOGGLE BUTTON ---------- */
-.theme-toggle {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 2000;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  color: var(--accent-cyan);
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--glow-cyan);
-}
-
-.theme-toggle:hover {
-  transform: scale(1.1) rotate(15deg);
-  background: var(--glass-bg-hover);
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--glow-cyan), 0 8px 32px rgba(0,0,0,0.2);
-}
-
 /* ---------- LOADER ---------- */
 .loader {
   position: fixed;
@@ -376,11 +346,46 @@ section {
   width: 60%;
 }
 
+/* ---------- NAVBAR RIGHT (toggle + hamburger) ---------- */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__theme-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.navbar__theme-btn:hover {
+  border-color: var(--accent-cyan);
+  background: var(--glass-bg-hover);
+  box-shadow: var(--glow-cyan);
+  transform: rotate(15deg) scale(1.1);
+}
+
 .navbar__hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .navbar__hamburger span {
@@ -1396,7 +1401,6 @@ section {
 
 .footer__text { font-size: 0.85rem; color: var(--text-muted); }
 .footer__accent { color: var(--accent-cyan); }
-
 .footer__links { display: flex; gap: 24px; }
 
 .footer__link {
@@ -1454,15 +1458,16 @@ section {
   }
 
   .navbar__links--open { display: flex; }
+
   .navbar__hamburger { display: flex; }
+
   .projects__grid { grid-template-columns: 1fr; }
+
   .hero__name { font-size: clamp(2rem, 10vw, 3.5rem); }
 
-  .theme-toggle {
-    bottom: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
+  .navbar__theme-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
   }
 }
